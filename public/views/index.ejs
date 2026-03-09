@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    </link>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="/js/client.js" defer></script>
+
+</head>
+
+<body>
+    <div id="header">
+        <ul>
+            <li id="navtitle">THE PLANETS</li>
+        </ul>
+        <ul id="links">
+            <li><a href="/0">MERCURY</a></li>
+            <li> <a href="/1">VENUS</a></li>
+            <li> <a href="/2">EARTH</a></li>
+            <li><a href="/3">MARS</a></li>
+            <li><a href="/4">JUPITER</a></li>
+            <li><a href="/5">SATURN</a></li>
+            <li><a href="/6">URANUS</a></li>
+
+            <li><a href="/7">NEPTUNE</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+
+        <div id="top">
+            <div id="images">
+                <img id="img" src="/images/<%=currentData.images.planet %>">
+                <img id="imggeo" src="">
+
+            </div>
+
+            <div id="details">
+                <div id="ti">
+
+                    <h1 id="title">
+                        <%=currentData.name%>
+                            <!-- <%=color%> -->
+
+                    </h1>
+                    <p id="desc">
+                        <%= currentData.overview.content %>
+                    </p>
+                </div>
+
+                <div id="buttons">
+                    <button id="overview" style="background-color: <%= color%>"
+                        onclick="changeDetails(`<%= JSON.stringify(currentData)%>`,`<%=  JSON.stringify(currentData.overview)%>`,'<%= color%>','overview')">OVERVIEW</button>
+                    <button id="structure"
+                        onclick="changeDetails(`<%= JSON.stringify(currentData)%>`,`<%= JSON.stringify(currentData.structure)%>`,'<%=color%>','structure')">INTERVAL</button>
+                    <button id="geology"
+                        onclick="changeDetails(`<%= JSON.stringify(currentData)%>`,`<%=JSON.stringify(currentData.geology)%>`,'<%= color%>','geology')">SURFACE</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomdetails">
+            <div id="rot">
+                <p id="rt">Rotation Time</p>
+                <p id="rotation" class="font">
+
+                    <%= currentData.rotation %>
+
+                </p>
+            </div>
+            <div id="rev">
+                <p id="rv">Revolution Time</p>
+                <p id="revolution" class="font">
+                    <%=currentData.revolution%>
+                </p>
+            </div>
+            <div id="rad">
+                <p id="rd">
+                    Radius
+                </p>
+                <p id="radius" class="font">
+                    <%= currentData.radius%>
+                </p>
+
+            </div>
+            <div id="avg">
+                <p id="ag">Average Time</p>
+                <p id="temprature" class="font">
+                    <%= currentData.temperature%>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
